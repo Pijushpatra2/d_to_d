@@ -1,0 +1,179 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to black and white premium color scheme */
+  --background: #ffffff; /* Pure white background */
+  --foreground: #000000; /* Pure black text */
+  --card: #ffffff; /* White cards */
+  --card-foreground: #000000; /* Black text on cards */
+  --popover: #ffffff; /* White popover background */
+  --popover-foreground: #000000; /* Black popover text */
+  --primary: #000000; /* Black primary color */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #f8f8f8; /* Light gray secondary */
+  --secondary-foreground: #000000; /* Black text on secondary */
+  --muted: #f8f8f8; /* Light gray muted */
+  --muted-foreground: #666666; /* Medium gray text on muted */
+  --accent: #000000; /* Black accent color */
+  --accent-foreground: #ffffff; /* White text on accent */
+  --destructive: #dc2626; /* Keep red for destructive actions */
+  --destructive-foreground: #ffffff; /* White text on destructive */
+  --border: #e5e5e5; /* Light gray borders */
+  --input: #ffffff; /* White input background */
+  --ring: rgba(0, 0, 0, 0.2); /* Black ring with transparency */
+  --chart-1: #000000; /* Black */
+  --chart-2: #666666; /* Dark gray */
+  --chart-3: #999999; /* Medium gray */
+  --chart-4: #cccccc; /* Light gray */
+  --chart-5: #e5e5e5; /* Very light gray */
+  --radius: 0.5rem;
+  --sidebar: #ffffff; /* White sidebar */
+  --sidebar-foreground: #000000; /* Black sidebar text */
+  --sidebar-primary: #000000; /* Black primary in sidebar */
+  --sidebar-primary-foreground: #ffffff; /* White text on sidebar primary */
+  --sidebar-accent: #000000; /* Black accent in sidebar */
+  --sidebar-accent-foreground: #ffffff; /* White text on sidebar accent */
+  --sidebar-border: #e5e5e5; /* Light gray sidebar border */
+  --sidebar-ring: rgba(0, 0, 0, 0.2); /* Black ring in sidebar */
+  --font-playfair: "Playfair Display", serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+.dark {
+  /* Updated dark mode to use inverted black and white scheme */
+  --background: #000000; /* Pure black background */
+  --foreground: #ffffff; /* Pure white text */
+  --card: #111111; /* Very dark gray cards */
+  --card-foreground: #ffffff; /* White text on cards */
+  --popover: #111111; /* Very dark gray popover */
+  --popover-foreground: #ffffff; /* White popover text */
+  --primary: #ffffff; /* White primary color */
+  --primary-foreground: #000000; /* Black text on primary */
+  --secondary: #222222; /* Dark gray secondary */
+  --secondary-foreground: #ffffff; /* White text on secondary */
+  --muted: #222222; /* Dark gray muted */
+  --muted-foreground: #999999; /* Light gray text on muted */
+  --accent: #ffffff; /* White accent color */
+  --accent-foreground: #000000; /* Black text on accent */
+  --destructive: #dc2626; /* Keep red for destructive */
+  --destructive-foreground: #ffffff; /* White text on destructive */
+  --border: #333333; /* Dark gray borders */
+  --input: #111111; /* Very dark gray input background */
+  --ring: rgba(255, 255, 255, 0.2); /* White ring with transparency */
+  --chart-1: #ffffff; /* White */
+  --chart-2: #cccccc; /* Light gray */
+  --chart-3: #999999; /* Medium gray */
+  --chart-4: #666666; /* Dark gray */
+  --chart-5: #333333; /* Very dark gray */
+  --sidebar: #000000; /* Black sidebar */
+  --sidebar-foreground: #ffffff; /* White sidebar text */
+  --sidebar-primary: #ffffff; /* White primary in sidebar */
+  --sidebar-primary-foreground: #000000; /* Black text on sidebar primary */
+  --sidebar-accent: #ffffff; /* White accent in sidebar */
+  --sidebar-accent-foreground: #000000; /* Black text on sidebar accent */
+  --sidebar-border: #333333; /* Dark gray sidebar border */
+  --sidebar-ring: rgba(255, 255, 255, 0.2); /* White ring in sidebar */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Updated font variables to use premium fonts */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added sophisticated animations for the new hero section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Removed old marquee animation as it's not needed for the new design */
